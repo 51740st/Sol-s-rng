@@ -31,7 +31,7 @@ function module.new(Rig,PathParams)
 	self.NearestDistanceTruss = math.huge
 	self.Waypoints = nil
 	
-	self.Root:SetNetworkOwner(nil)
+
 	
 	--Events
 	
