@@ -49,6 +49,7 @@ local data = {
 				{
 					["name"] = "Lucky Potions",
 					["value"] = LuckyPotions
+                                        ["inline"] = false
 				},
 				{
 					["name"] = "Speed Potions",
