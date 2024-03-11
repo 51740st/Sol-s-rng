@@ -1,10 +1,11 @@
 local OldRolls = game.Players.LocalPlayer.leaderstats.Rolls.Value
---wait(time)
 local LuckyPotions = nil
 local SpeedPotions = nil
 local Gildcoin = nil
 local Coin = nil
 local allaura = nil
+local str = game.Players.LocalPlayer.PlayerGui.MainInterface.AuraInventory.InventoryFrame.Title.Text
+local newStr, replaced = string.gsub(str, "Normal Auras", "")
 for i, v in pairs(game.Players.LocalPlayer.PlayerGui.MainInterface.AuraInventory.InventoryFrame.ItemsHolder:GetDescendants()) do
 pcall(function()
 if v.BaseFrame:FindFirstChild('AuraName') then -- in this case true
@@ -85,9 +86,14 @@ local data = {
                                         ["inline"] = true
 				},
 				{
-					["name"] = "Lastest Aura In Inventory",
+					["name"] = "Lastest Aura",
 					["value"] = allaura,
 					["inline"] = false
+				},
+				{
+					["name"] = "Aura Storage",
+					["value"] = newStr,
+					["inline"] = true
 				}
 				
            }
