@@ -39,12 +39,21 @@ local data = {
 					["inline"] = true
 				},
 				{
+					["name"] = "Balance",
+					["value"] = game.Players.LocalPlayer.PlayerGui.MainInterface.Coin.Text,
+					["inline"] = true
+				},
+				{
 					["name"] = "Inventory",
 					["value"] = ""
 				},
 				{
 					["name"] = "Lucky Potions",
 					["value"] = LuckyPotions
+				},
+				{
+					["name"] = "Speed Potions",
+					["value"] = SpeedPotions
 				}
 				
            }
