@@ -77,7 +77,7 @@ local data = {
 				{
 					["name"] = "Coin",
 					["value"] = Coin,
-                                        ["inline"] = false
+                                        ["inline"] = true
 				},
 				{
 					["name"] = "Gilded Coin",
