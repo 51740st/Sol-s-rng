@@ -36,7 +36,7 @@ else
 Gildcoin = 0
 end
 
-local ping = "@everyone"
+
 local data = {
    ["content"] = ping or "",
    ["embeds"] = {
