@@ -1,40 +1,61 @@
-while true do
-task.wait()
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(game.workspace.ItemSpawnLocations["1"].Position)
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(210, 106, 3))
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(game.workspace.ItemSpawnLocations["2"].Position)
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(211, 117, 92))
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(game.workspace.ItemSpawnLocations["8"].Position)
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(194.6071319580078, 123.25198364257812, 111.76689147949219))
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(174.48977661132812, 123.75198364257812, 101.93534851074219))
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(game.workspace.ItemSpawnLocations["3"].Position)
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(174.48977661132812, 123.75198364257812, 101.93534851074219))
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(194.6071319580078, 123.25198364257812, 111.76689147949219))
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(game.workspace.ItemSpawnLocations["6"].Position)
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(300.3956298828125, 109.48391723632812, 133.02760314941406))
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(game.workspace.ItemSpawnLocations["4"].Position)
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(373.5589599609375, 115.48457336425781, 131.35494995117188))
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(394.646728515625, 119.99996948242188, 111.53372192382812))
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(411.0082092285156, 144.79995727539062, 93.2409439086914))
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(game.workspace.ItemSpawnLocations["5"].Position)
-game.Players.LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
-game.Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(362.0480041503906, 115.29725646972656, 90.9381332397461))
-task.wait(2.5)
+print("CheckTime")
+local time = 36000
+local timeTotal = time / 60
+local OldRolls = game.Players.LocalPlayer.leaderstats.Rolls.Value
+--wait(time)
+local LastRolls = game.Players.LocalPlayer.leaderstats.Rolls.Value
+local FinaleRolls = LastRolls - OldRolls
+local LuckyPotions = nil
+local SpeedPotions = nil
+if game:GetService("Players").LocalPlayer.PlayerGui.MainInterface.Inventory.Items.ItemGrid.ScrollingFrame:FindFirstChild('Lucky Potion') then -- in this case true
+   LuckyPotions = game:GetService("Players").LocalPlayer.PlayerGui.MainInterface.Inventory.Items.ItemGrid.ScrollingFrame["Lucky Potion"].ItemAmount.Text
+else
+LuckyPotions = 0
 end
+if game:GetService("Players").LocalPlayer.PlayerGui.MainInterface.Inventory.Items.ItemGrid.ScrollingFrame:FindFirstChild('Speed Potion') then -- in this case true
+   SpeedPotions = game:GetService("Players").LocalPlayer.PlayerGui.MainInterface.Inventory.Items.ItemGrid.ScrollingFrame["Speed Potion"].ItemAmount.Text
+else
+SpeedPotions = 0
+end
+local url =
+   "https://discord.com/api/webhooks/1207671376773775371/6Bp85VEliUox4D-mMufgY8M9F3kdS8PhsGNfwtqw1x3F49IdzJ26JilW-tNs1LZi5ScD" -- webhook link ofc
+local ping = "@everyone"
+local data = {
+   ["content"] = ping or "",
+   ["embeds"] = {
+       {
+           ["title"] = "AFK Sol's Rng",
+           ["type"] = "rich",
+           ["color"] = tonumber(0x7269da),
+		["fields"] = {
+				{
+					["name"] = "Username",
+					["value"] = game.Players.LocalPlayer.Name,
+					["inline"] = true
+				},
+				{
+					["name"] = "Total Rolls",
+					["value"] = FinaleRolls,
+					["inline"] = true
+				},
+				{
+					["name"] = "Inventory",
+					["value"] = ""
+				},
+				{
+					["name"] = "Lucky Potions",
+					["value"] = LuckyPotions
+				}
+				
+           }
+       }
+   }
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+local headers = {
+   ["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
