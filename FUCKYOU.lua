@@ -44,7 +44,8 @@ local data = {
 				},
 				{
 					["name"] = "Inventory",
-					["value"] = ""
+					["value"] = "",
+					["inline"] = false
 				},
 				{
 					["name"] = "Lucky Potions",
