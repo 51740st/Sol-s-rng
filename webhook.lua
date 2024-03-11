@@ -72,7 +72,7 @@ local data = {
 				{
 					["name"] = "Speed Potions",
 					["value"] = SpeedPotions,
-                                        ["inline"] = false
+                                        ["inline"] = true
 				},
 				{
 					["name"] = "Coin",
