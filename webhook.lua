@@ -72,17 +72,17 @@ local data = {
 				{
 					["name"] = "Speed Potions",
 					["value"] = SpeedPotions,
-                                        ["inline"] = true
+                                        ["inline"] = false
 				},
 				{
 					["name"] = "Coin",
 					["value"] = Coin,
-                                        ["inline"] = false
+                                        ["inline"] = true
 				},
 				{
 					["name"] = "Gilded Coin",
 					["value"] = Gildcoin,
-                                        ["inline"] = false
+                                        ["inline"] = true
 				},
 				{
 					["name"] = "Lastest Aura In Inventory",
