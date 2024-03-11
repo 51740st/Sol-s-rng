@@ -1,4 +1,3 @@
-
 local OldRolls = game.Players.LocalPlayer.leaderstats.Rolls.Value
 --wait(time)
 local LuckyPotions = nil
@@ -83,6 +82,11 @@ local data = {
 				{
 					["name"] = "Gilded Coin",
 					["value"] = Gildcoin,
+                                        ["inline"] = true
+				},
+				{
+					["name"] = "Coin",
+					["value"] = Coin,
                                         ["inline"] = true
 				},
 				{
