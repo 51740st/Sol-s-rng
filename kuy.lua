@@ -1,4 +1,4 @@
-https://raw.githubusercontent.com/51740st/Sol-s-rng/main/dzdzdzdzd.luaprint("CheckTime")
+
 local time = 36000
 local timeTotal = time / 60
 local OldRolls = game.Players.LocalPlayer.leaderstats.Rolls.Value
