@@ -85,11 +85,6 @@ local data = {
                                         ["inline"] = true
 				},
 				{
-					["name"] = "Coin",
-					["value"] = Coin,
-                                        ["inline"] = true
-				},
-				{
 					["name"] = "Lastest Aura In Inventory",
 					["value"] = allaura,
 					["inline"] = false
