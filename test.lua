@@ -10,6 +10,7 @@ local args = {
 game:GetService("ReplicatedStorage").Modules.Inventory.UseItem:FireServer(unpack(args))
       end
 
+        end
 end
 function AutoWalkToPosition()
 repeat wait() until getgenv().AutoWalk == true
