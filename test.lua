@@ -1,5 +1,9 @@
 function AutoWalkToPosition()
 repeat wait() until getgenv().AutoWalk == true
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Controls = require(LocalPlayer.PlayerScripts.PlayerModule):GetControls()
+
+Controls:Disable()
 game.Players.LocalPlayer.Character.Humanoid.Health = 0
 wait(5)
 while getgenv().AutoWalk do
