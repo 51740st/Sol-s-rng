@@ -2,7 +2,17 @@ function AutoWalkToPosition()
 repeat wait() until getgenv().AutoWalk == true
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Controls = require(LocalPlayer.PlayerScripts.PlayerModule):GetControls()
-
+if game.Workspace.ItemSpawnLocations.Part.Name ~= "1" then
+game.Workspace.ItemSpawnLocations.Part.Name = "1"
+game.Workspace.ItemSpawnLocations.Part.Name = "2"
+game.Workspace.ItemSpawnLocations.Part.Name = "3"
+game.Workspace.ItemSpawnLocations.Part.Name = "4"
+game.Workspace.ItemSpawnLocations.Part.Name = "5"
+game.Workspace.ItemSpawnLocations.Part.Name = "6"
+game.Workspace.ItemSpawnLocations.Part.Name = "7"
+game.Workspace.ItemSpawnLocations.Part.Name = "8"
+else
+end
 Controls:Disable()
 game.Players.LocalPlayer.Character.Humanoid.Health = 0
 wait(5)
