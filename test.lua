@@ -1,7 +1,7 @@
 function AutoUseItem()
 local SelectedItems = getgenv().SelectedItems
 while getgenv().AutoUseItems do
-if table.find(SelectedItems, "Speed Potion") do
+if table.find(SelectedItems, "Speed Potion") then
 local args = {
     [1] = "Speed Potion",
     [2] = 1
