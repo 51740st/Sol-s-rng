@@ -1,3 +1,16 @@
+function AutoUseItem()
+local SelectedItems = getgenv().SelectedItems
+while getgenv().AutoUseItems do
+if table.find(SelectedItems, "Speed Potion") do
+local args = {
+    [1] = "Speed Potion",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage").Modules.Inventory.UseItem:FireServer(unpack(args))
+      end
+
+end
 function AutoWalkToPosition()
 repeat wait() until getgenv().AutoWalk == true
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -51,14 +64,22 @@ end
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
 local window = DrRayLibrary:Load("iPeach Sol's Rng", "Default")
 local tab1 = DrRayLibrary.newTab("Main", "ImageIdHere")
-tab1.newToggle("Auto Walk To Item Spawner", "", false, function(toggleState)
-getgenv().AutoWalk = toggleState
-AutoWalkToPosition()
-end)
-
 tab1.newButton("Enable Player Control", "", function()
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Controls = require(LocalPlayer.PlayerScripts.PlayerModule):GetControls()
 
 Controls:Enable()
+end)
+tab1.newToggle("Auto Walk To Item Spawner", "", false, function(toggleState)
+getgenv().AutoWalk = toggleState
+AutoWalkToPosition()
+end)
+
+tab1.newToggle("Auto Use Items", "Select DropDown Before use this", false, function(toggleState)
+getgenv().AutoUseItems = toggleState
+AutoUseItem()
+end)
+
+tab1.newDropdown("Items", "Select", {"Lucky Potion", "Speed Potion", "Coin", "Gilded Coin"}, function(selectedOption)
+getgenv().SelectedItems = selectedOption
 end)
