@@ -1,7 +1,7 @@
 function AutoUseItem()
 local SelectedItems = nil
 while getgenv().AutoUseItems do
-if table.find(SelectedItems, "Speed Potion") then
+if SelectedItems == "Speed Potion" then
 local args = {
     [1] = "Speed Potion",
     [2] = 1
@@ -76,11 +76,11 @@ getgenv().AutoWalk = toggleState
 AutoWalkToPosition()
 end)
 
-tab1.newToggle("Auto Use Items", "Select DropDown Before use this", false, function(toggleState)
+tab1.newToggle("Auto Use Potions", "Select DropDown Before use this", false, function(toggleState)
 getgenv().AutoUseItems = toggleState
 AutoUseItem()
 end)
 
-tab1.newDropdown("Items", "Select", {"Lucky Potion", "Speed Potion", "Coin", "Gilded Coin"}, function(selectedOption)
+tab1.newDropdown("Items", "Select", {"Lucky Potion", "Speed Potion"}, function(selectedOption)
 SelectedItems = selectedOption
 end)
