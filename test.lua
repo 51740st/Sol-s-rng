@@ -1,9 +1,9 @@
 local SelectedItems = nil
-		game.Players.LocalPlayer.Idled:Connect(function()
-			local VirtualUser = game:GetService("VirtualUser")
-			VirtualUser:CaptureController()
-			VirtualUser:ClickButton2(Vector2.new())
-		end)
+        game.Players.LocalPlayer.Idled:Connect(function()
+            local VirtualUser = game:GetService("VirtualUser")
+            VirtualUser:CaptureController()
+            VirtualUser:ClickButton2(Vector2.new())
+        end)
 function AutoUseItem()
 while getgenv().AutoUseItems do
 task.wait()
@@ -23,9 +23,18 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Modules.Inventory.UseItem:FireServer(unpack(args)) 
-      end
+end
+end
+end
 
-        end
+function Webhook()
+    getgenv().url = url
+    getgenv().ping = ping
+    getgenv().ping = Cooldown
+    while getgenv.AutoWebhook do
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/51740st/Sol-s-rng/main/webhook.lua"))()
+        wait(Cooldown)
+    end
 end
 
 function AutoWalkToPosition()
@@ -116,11 +125,22 @@ SelectedItems = selectedOption
 end)
 
 
-tab2.newInput("Webhook URL", "Prints your input.", function(text)
-    print("Entered text in Tab 1: " .. text)
+tab2.newInput("Webhook URL", "url that you got from discord", function(text)
+    getgenv.url = text
 end)
 
+tab2.newInput("Webhook Ping", "ping someone for example @everyone", function(pingwho)
+    getgenv.ping = pingwho
+end)
 
+tab2.newSlider("Webhook Cooldown", "Cooldown in second", 3600, false, function(num)
+    getgenv().Cooldown = num
+end)
+
+tab2.newToggle("Auto Send Webhook", "", false, function(toggleState)
+getgenv().AutoWebhook = toggleState
+AutoWalkToPosition()
+end)
 
 
 while true do
