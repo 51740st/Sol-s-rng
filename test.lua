@@ -1,6 +1,7 @@
 function AutoUseItem()
 local SelectedItems = nil
 while getgenv().AutoUseItems do
+task.wait()
 if SelectedItems == "Speed Potion" then
 local args = {
     [1] = "Speed Potion",
