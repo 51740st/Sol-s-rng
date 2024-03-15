@@ -1,4 +1,9 @@
 local SelectedItems = nil
+		game.Players.LocalPlayer.Idled:Connect(function()
+			local VirtualUser = game:GetService("VirtualUser")
+			VirtualUser:CaptureController()
+			VirtualUser:ClickButton2(Vector2.new())
+		end)
 function AutoUseItem()
 while getgenv().AutoUseItems do
 task.wait()
@@ -87,6 +92,8 @@ end
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
 local window = DrRayLibrary:Load("iPeach Sol's Rng", "Default")
 local tab1 = DrRayLibrary.newTab("Main", "ImageIdHere")
+local tab2 = DrRayLibrary.newTab("Webhook", "ImageIdHere")
+
 tab1.newButton("Enable Player Control", "", function()
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Controls = require(LocalPlayer.PlayerScripts.PlayerModule):GetControls()
@@ -107,6 +114,14 @@ tab1.newDropdown("Potions", "Select", {"Lucky Potion", "Speed Potion"}, function
 
 SelectedItems = selectedOption
 end)
+
+
+tab2.newInput("Webhook URL", "Prints your input.", function(text)
+    print("Entered text in Tab 1: " .. text)
+end)
+
+
+
 
 while true do
 wait()
