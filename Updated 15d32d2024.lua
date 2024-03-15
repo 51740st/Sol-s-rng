@@ -9,7 +9,7 @@ local KickCD = nil
             VirtualUser:ClickButton2(Vector2.new())
         end)
         function TimeKick()
-            while getgenv.KickTime do
+            while getgenv().KickTime do
                 wait(KickCD)
 getgenv().AutoWebhook = false
 game.Players.LocalPlayer:Kick("เสร็จสิ้น")
