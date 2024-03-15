@@ -1,4 +1,7 @@
 local SelectedItems = nil
+local WebhookUrl = nil
+local WebhookPing = nil
+local WebhookCD = nil
         game.Players.LocalPlayer.Idled:Connect(function()
             local VirtualUser = game:GetService("VirtualUser")
             VirtualUser:CaptureController()
@@ -28,10 +31,11 @@ end
 end
 
 function Webhook()
-    getgenv().url = url
-    getgenv().ping = ping
-    getgenv().ping = Cooldown
+
     while getgenv().AutoWebhook do
+            getgenv().url = WebhookUrl
+            getgenv().ping = WebhookPing
+            getgenv().Cooldown = WebhookCD
         loadstring(game:HttpGet("https://raw.githubusercontent.com/51740st/Sol-s-rng/main/webhook.lua"))()
         wait(Cooldown)
     end
@@ -126,15 +130,15 @@ end)
 
 
 tab2.newInput("Webhook URL", "url that you got from discord", function(text)
-    getgenv.url = text
+    WebhookUrl = text
 end)
 
 tab2.newInput("Webhook Ping", "ping someone for example @everyone", function(pingwho)
-    getgenv.ping = pingwho
+    WebhookPing = pingwho
 end)
 
 tab2.newSlider("Webhook Cooldown", "Cooldown in second", 3600, false, function(num)
-    getgenv().Cooldown = num
+    WebhookCD = num
 end)
 
 tab2.newToggle("Auto Send Webhook", "", false, function(toggleState)
