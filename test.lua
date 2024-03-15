@@ -47,7 +47,8 @@ local Controls = require(LocalPlayer.PlayerScripts.PlayerModule):GetControls()
 
 Controls:Disable()
 game.Players.LocalPlayer.Character.Humanoid.Health = 0
-if game.Workspace.ItemSpawnLocations.Part.Name ~= "1" then
+if game.Workspace.ItemSpawnLocations:FindFirstChild("1") then
+    else
 game.Workspace.ItemSpawnLocations.Part.Name = "1"
 game.Workspace.ItemSpawnLocations.Part.Name = "2"
 game.Workspace.ItemSpawnLocations.Part.Name = "3"
