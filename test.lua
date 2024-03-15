@@ -91,8 +91,7 @@ getgenv().AutoUseItems = toggleState
 AutoUseItem()
 end)
 
-tab1.newDropdown("Items", "Select", {"Lucky Potion", "Speed Potion"}, function(selectedOption)
+tab1.newDropdown("Potions", "Select", {"Lucky Potion", "Speed Potion"}, function(selectedOption)
 
 SelectedItems = selectedOption
-print(SelectedItems)
 end)
