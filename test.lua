@@ -114,7 +114,6 @@ end)
 tab1.newToggle("Auto Walk To Item Spawner", "", false, function(toggleState)
 getgenv().AutoWalk = toggleState
 AutoWalkToPosition()
-AutoPickUpItems()
 end)
 
 tab1.newToggle("Auto Use Potions", "Select DropDown Before use this", false, function(toggleState)
@@ -126,3 +125,5 @@ tab1.newDropdown("Potions", "Select", {"Lucky Potion", "Speed Potion"}, function
 
 SelectedItems = selectedOption
 end)
+
+AutoPickUpItems()
