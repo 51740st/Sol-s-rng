@@ -24,6 +24,7 @@ game:GetService("ReplicatedStorage").Modules.Inventory.UseItem:FireServer(unpack
 end
 function AutoPickUpItems()
 while getgenv().AutoWalk do
+task.wait()
    pcall(function()
 for i, v in pairs(game.Workspace.DroppedItems:GetDescendants()) do
                    if v:IsA("Model") and v.Name == "Lucky Potion" or v.Name == "Speed Potion" and v:FindFirstChild("Casing") then
