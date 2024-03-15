@@ -30,6 +30,38 @@ end
 end
 end
 
+function AutoUseCoins()
+while getgenv().AutoUseCoin do
+task.wait()
+
+local args = {
+    [1] = "Coin",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage").Modules.Inventory.UseItem:FireServer(unpack(args))
+local args = {
+    [1] = "Gilded Coin",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage").Modules.Inventory.UseItem:FireServer(unpack(args))
+
+end
+end
+
+function AutoStorage()
+while getgenv().AutoUpgradeStorage do
+task.wait()
+
+local args = {
+    [1] = "UpgradeStorage"
+}
+
+game:GetService("ReplicatedStorage").Remotes.AuraStorage:FireServer(unpack(args))
+end
+end
+
 function Webhook()
     while getgenv().AutoWebhook do
 
@@ -225,6 +257,16 @@ end)
 tab1.newToggle("Auto Walk To Item Spawner", "", false, function(toggleState)
 getgenv().AutoWalk = toggleState
 AutoWalkToPosition()
+end)
+
+tab1.newToggle("Auto Use Coins", "", false, function(toggleState)
+getgenv().AutoUseCoin = toggleState
+AutoUseCoins()
+end)
+
+tab1.newToggle("Auto Upgrade Storage", "", false, function(toggleState)
+getgenv().AutoUpgradeStorage = toggleState
+AutoStorage()
 end)
 
 tab1.newToggle("Auto Use Potions", "Select DropDown Before use this", false, function(toggleState)
