@@ -22,6 +22,24 @@ game:GetService("ReplicatedStorage").Modules.Inventory.UseItem:FireServer(unpack
 
         end
 end
+function AutoPickUpItems()
+while getgenv().AutoWalk do
+   pcall(function()
+for i, v in pairs(game.Workspace.DroppedItems:GetDescendants()) do
+                   if v:IsA("Model") and v.Name == "Lucky Potion" or v.Name == "Speed Potion" and v:FindFirstChild("Casing") then
+                    fireproximityprompt(v.Casing.ProximityPrompt)
+end
+end
+
+for i, v in pairs(game.Workspace.DroppedItems:GetDescendants()) do
+                   if v:IsA("Part") and v.Name == "Coin" or v.Name == "Gilded Coin" then
+                    fireproximityprompt(v.ProximityPrompt)
+end
+end
+
+end)
+end
+end
 function AutoWalkToPosition()
 repeat wait() until getgenv().AutoWalk == true
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -84,6 +102,7 @@ end)
 tab1.newToggle("Auto Walk To Item Spawner", "", false, function(toggleState)
 getgenv().AutoWalk = toggleState
 AutoWalkToPosition()
+AutoPickUpItems()
 end)
 
 tab1.newToggle("Auto Use Potions", "Select DropDown Before use this", false, function(toggleState)
