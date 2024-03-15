@@ -139,7 +139,7 @@ end)
 
 tab2.newToggle("Auto Send Webhook", "", false, function(toggleState)
 getgenv().AutoWebhook = toggleState
-AutoWalkToPosition()
+Webhook()
 end)
 
 
