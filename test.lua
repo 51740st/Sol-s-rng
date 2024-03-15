@@ -8,7 +8,16 @@ local args = {
     [2] = 1
 }
 
-game:GetService("ReplicatedStorage").Modules.Inventory.UseItem:FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Modules.Inventory.UseItem:FireServer(unpack(args)) 
+      end
+
+if SelectedItems == "Lucky Potion" then
+local args = {
+    [1] = "Lucky Potion",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage").Modules.Inventory.UseItem:FireServer(unpack(args)) 
       end
 
         end
