@@ -31,7 +31,7 @@ function Webhook()
     getgenv().url = url
     getgenv().ping = ping
     getgenv().ping = Cooldown
-    while getgenv.AutoWebhook do
+    while getgenv().AutoWebhook do
         loadstring(game:HttpGet("https://raw.githubusercontent.com/51740st/Sol-s-rng/main/webhook.lua"))()
         wait(Cooldown)
     end
