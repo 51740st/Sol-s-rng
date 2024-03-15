@@ -1,7 +1,7 @@
 function AutoUseItem()
-local SelectedItems = getgenv().SelectedItems
+local SelectedItems = nil
 while getgenv().AutoUseItems do
-if SelectedItems == "Speed Potion" then
+if table.find(SelectedItems, "Speed Potion") then
 local args = {
     [1] = "Speed Potion",
     [2] = 1
@@ -82,5 +82,5 @@ AutoUseItem()
 end)
 
 tab1.newDropdown("Items", "Select", {"Lucky Potion", "Speed Potion", "Coin", "Gilded Coin"}, function(selectedOption)
-getgenv().SelectedItems = selectedOption
+SelectedItems = selectedOption
 end)
